@@ -9,18 +9,18 @@
    The font-size percentage is of 16px. (0.75 * 16px = 12px) */
 html { font-size:100.01%; }
 body {
-  font-size: 75%;
+  font-size: 100%;
   color: #333;
   background: #fff;
   font-weight: 400;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Questrial', sans-serif;
 }
 
 
 /* Headings
 -------------------------------------------------------------- */
 
-h1,h2,h3,h4,h5,h6 {font-family: 'Open Sans', sans-serif; font-weight: 300; color: #111; margin-top: 0; letter-spacing: -.25px; }
+h1,h2,h3,h4,h5,h6 {font-family: 'Questrial', sans-serif; font-weight: 300; color: #111; margin-top: 0; letter-spacing: -.25px; }
 
 h1 { font-size: 3em; line-height: 1; margin-bottom: 0.5em; font-weight: 300; }
 h2 { font-size: 2em; margin-bottom: 0.75em; font-weight: 300; }
