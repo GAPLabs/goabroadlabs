@@ -4,11 +4,15 @@ img.fr { margin-left: 10px; }
 
 /* header */
 .header { position: relative; z-index: 9999; }
-.header section { background-color: #1d1d1d; background-image: none; border-bottom: 1px solid #343434; padding-bottom: 0; }
+.header section { background-color: #22272b; background-image: none; padding-bottom: 0; position:fixed; }
 .header .box { padding-bottom: 1em; }
 .header li { float: left; text-transform: uppercase; font-size: 1.1em; margin: 0 0 1em 1.5em; }
 .header li a { color: #ccc; opacity:0.9; }
 .header .selected a { color: #00a8e2; }
+
+/* ads */
+
+.hd > section > div { background:#000 url('../../images/hdposter.jpg') no-repeat bottom center; height: 955px;}
 
 form.search { overflow: hidden; margin-bottom: 1em; }
 .search input[type=text] { font-size: 1.4em; color: #777; padding: 10px; float: left; margin-right: 5px; }
