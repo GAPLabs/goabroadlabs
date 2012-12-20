@@ -1,4 +1,4 @@
-.sass-cache
+log/
 tmp/
 .DS_STORE
-log/
+.sass-cache
