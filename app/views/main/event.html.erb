@@ -4,7 +4,7 @@
             <h1><%= image_tag "logo.png" , :border=>"0", :align=>"left", :align=>"GoAbroadlabs.ph" %></h1>
             <nav>
                 <ul class="fr">
-                    <li class="selected"><a class="nav" href="home">Home</a></li>
+                    <li><a class="nav" href="home">Home</a></li>
                     <li><a class="nav" href="registration">Registration</a></li>
                     <li><a class="nav" href="schedule">Schedule</a></li>
                     <li><a class="nav" href="workshops">Workshops</a></li>
@@ -15,8 +15,13 @@
         </div>
     </section>
 </header>
+<<<<<<< HEAD
 <article class="hd row">
     <section class="column grid_12" id="home">
+=======
+<article class="hd row" id="home">
+    <section class="column grid_12">
+>>>>>>> cb2533a10e687ffd7b5105a7356003bf816787f3
         <div>
             <%= image_tag "webcamp.png", :border=>"0", :align=>"left" %>
             <h1>Are you ready for the future?</h1>
@@ -75,17 +80,22 @@
 </article>
 
 <script>
+<<<<<<< HEAD
 	(function(){
 		$().ready(function(){
+=======
+	$(function(){
+		$(document).ready(function(){
+>>>>>>> cb2533a10e687ffd7b5105a7356003bf816787f3
 			$(".nav").on('click',function(){
 				$('.selected').removeClass('selected');
 				$(this).parent().addClass('selected');
 				var offset = $('#'+$(this).attr('href')).offset();
-			     $('html, body').animate({
-				         scrollTop: offset.top - 140
-				     }, 1000);
+			    $('html, body').animate({
+					scrollTop: offset.top - 140
+				}, 1000);
 				return false;	
 			});
 		});
-	})(jQuery);
+	});
 </script>
