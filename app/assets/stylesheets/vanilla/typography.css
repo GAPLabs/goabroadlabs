@@ -9,19 +9,19 @@
    The font-size percentage is of 16px. (0.75 * 16px = 12px) */
 html { font-size:100.01%; }
 body {
-  font-size: 100%;
+  font-size: 90%;
   color: #444;
   background: #fff;
-  font-weight: 400;
+  font-weight: 300;
   line-height: 1.5;
-  font-family: 'Questrial', sans-serif;
+  font-family: 'Open Sans', sans-serif;
 }
 
 
 /* Headings
 -------------------------------------------------------------- */
 
-h1,h2,h3,h4,h5,h6 {font-family: 'Questrial', sans-serif; font-weight: 300; color: #111; margin-top: 0; letter-spacing: -.25px; }
+h1,h2,h3,h4,h5,h6 {font-family: 'Questrial', sans-serif; font-weight: 400; color: #111; margin-top: 0; letter-spacing: -.25px; }
 
 h1 { font-size: 3em; line-height: 1; margin-bottom: 0.5em; font-weight: 300; }
 h2 { font-size: 2em; line-height: 1.25; margin-bottom: 0.75em; font-weight: 300; }
@@ -35,14 +35,12 @@ h4 img, h5 img, h6 img {
   margin: 0;
 }
 
-h2 span { display: block; font-size: 0.7em; color: #00a8e2; }
-
 /* Text elements
 -------------------------------------------------------------- */
 
-p			 { margin: 0 0 1em; }
-h3 + p 		 { margin-bottom: 1em; }
-p + h3		 { margin-top: 1em; }
+p      { margin: 0 0 1em; }
+h3 + p     { margin-bottom: 1em; }
+p + h3     { margin-top: 1em; }
 p:last-child { margin-bottom: 0; }
 
 /*
@@ -71,6 +69,7 @@ del         { color:#666; }
 pre         { margin: 1.5em 0; white-space: pre; }
 pre,code,tt { font: 1em 'andale mono', 'lucida console', monospace; line-height: 1.5; }
 
+.indent   { text-indent: 1em; }
 
 /* Lists
 -------------------------------------------------------------- */
