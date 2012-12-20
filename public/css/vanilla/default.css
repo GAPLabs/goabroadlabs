@@ -9,12 +9,18 @@ img.fr { margin-left: 10px; }
 .header li { float: left; text-transform: uppercase; font-size: 1.1em; margin: 0 0 1em 1.5em; }
 .header li a { color: #ccc; opacity:0.9; }
 .header .selected a { color: #00a8e2; }
+.header nav { margin-top: 1em; }
+.header h1 { float: left; margin: 0;  }
+
+h2 span:first-child { color: #aaa; }
+h2 span+span { color: #c8386d; }
+h2 span.subtxt { display: block; font-size: 0.7em; color: #00a8e2; }
 
 /* ads */
 .hd > section > div { background:#000 url('../../images/hdposter.jpg') no-repeat bottom center; padding: 4em 0 2em; text-align: center; color: #ddd; font-size: 1.8em; }
 .hd img { float: none; display: block; margin:0 auto 1em; }
-.hd h1 { color: #fff; font-size: 2em; text-shadow: 0 1px 5px #000; }
-.hd h1+p { padding: 0.5em 1em; background-color: #74324a; display:inline-block; }
+.hd h1 { color: #fff; font-size: 2.5em; text-shadow: 0 1px 5px #000; }
+.hd h1+p { padding: 0.5em 1em; background-color: #74324a; display:inline-block; font-family: 'Questrial', sans-serif; }
 .hd p:last-child { display:inline-block; margin: 0 auto; width: 450px; line-height: 1; }
 
 form.search { overflow: hidden; margin-bottom: 1em; }
@@ -46,6 +52,19 @@ a .ico { background-position: -500px -559px; float: right; height: 20px; positio
 ul { list-style: none; padding: 0; margin: 0 0 20px;}
 ul li { margin-right: 10px; margin-bottom: 5px; }
 
+.sched * { display: block; }
+.sched .time { border-bottom: 1px solid #909090; font-weight: 400; padding-bottom: 5px; }
+.sched li { margin-bottom: 1.5em; }
+.sched span { float: left; font-weight: 400; }
+.sched .title { color: #00a8e2; font-size: 1.2em; font-weight: 400; margin-left: 5.8em}
+.sched p { margin: 0 0 0 7em; }
+
+.workshop li { float: left; margin: 0 5em 2em 0; display: table; height: 150px; }
+.workshop li:nth-child(3n+3) { clear: both; }
+.workshop div { display: table-cell; vertical-align: middle; height: 100%; }
+.workshop h2 { margin-bottom: 0; color: #00A8E2; font-size: 1.5em; }
+.workshop img { margin-right: 2em; }
+
 /* default boxes */
 .fl	{ float: left; }
 .fr { float: right; }
@@ -53,6 +72,8 @@ ul li { margin-right: 10px; margin-bottom: 5px; }
 .hd section { background: #fff url('../../images/divider_arrow_1.png') no-repeat bottom center; } 
 section { padding-bottom: 2.5em; background: url('../../images/divider_arrow_2.png') no-repeat bottom center, url('../../images/divider_dot.png') repeat-x bottom center #fff; } 
 .box { padding: 1em 5em 2em; overflow: hidden; }
+.grid_6:first-child > .box { padding: 1em 1em 2em 5em; }
+.grid_6:last-child > .box { padding: 1em 5em 2em 1em; }
 article:last-child section { background-image: none; padding: 0; }
 
 /* @footer */
