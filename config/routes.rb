@@ -1,13 +1,15 @@
 GoAroadLabs::Application.routes.draw do
+    get "event/main"
+
     get "main/homepage"
 
     # The priority is based upon order of creation:
     # first created -> highest priority.
-    root :to => "main#event"
+    root :to => "event#main"
     # Sample of regular route:
     #   match 'products/:id' => 'catalog#view'
     # Keep in mind you can assign values other than :controller and :action
-    match '/event' => 'main#event'
+    match '/event' => 'event#main'
     # Sample of named route:
     #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
     # This route can be invoked with purchase_url(:id => product.id)
@@ -57,4 +59,6 @@ GoAroadLabs::Application.routes.draw do
     # This is a legacy wild controller route that's not recommended for RESTful applications.
     # Note: This route will make all actions in every controller accessible via GET requests.
     # match ':controller(/:action(/:id))(.:format)'
+    # to handle error. temporary. all routes direct to event page.
+    match '*path' => "event#main"
 end
