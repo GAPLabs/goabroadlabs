@@ -4,7 +4,7 @@
             <h1><%= image_tag "logo.png" , :border=>"0", :align=>"left", :align=>"GoAbroadlabs.ph" %></h1>
             <nav>
                 <ul class="fr">
-                    <li class="selected"><a class="nav" href="home">Home</a></li>
+                    <li><a class="nav" href="home">Home</a></li>
                     <li><a class="nav" href="registration">Registration</a></li>
                     <li><a class="nav" href="schedule">Schedule</a></li>
                     <li><a class="nav" href="workshops">Workshops</a></li>
@@ -15,7 +15,7 @@
         </div>
     </section>
 </header>
-<article class="hd row">
+<article class="hd row" id="home">
     <section class="column grid_12">
         <div>
             <%= image_tag "webcamp.png", :border=>"0", :align=>"left" %>
@@ -76,16 +76,16 @@
 
 <script>
 	$(function(){
-		$().ready(function(){
+		$(document).ready(function(){
 			$(".nav").on('click',function(){
 				$('.selected').removeClass('selected');
 				$(this).parent().addClass('selected');
 				var offset = $('#'+$(this).attr('href')).offset();
-			     $('html, body').animate({
-				         scrollTop: offset.top - 140
-				     }, 1000);
+			    $('html, body').animate({
+					scrollTop: offset.top - 140
+				}, 1000);
 				return false;	
 			});
 		});
-	})(jQuery);
+	});
 </script>
