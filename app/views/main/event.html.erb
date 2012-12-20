@@ -4,7 +4,7 @@
             <h1><%= image_tag "logo.png" , :border=>"0", :align=>"left", :align=>"GoAbroadlabs.ph" %></h1>
             <nav>
                 <ul class="fr">
-                    <li><a class="nav" href="home">Home</a></li>
+                    <li class="selected"><a class="nav" href="home">Home</a></li>
                     <li><a class="nav" href="registration">Registration</a></li>
                     <li><a class="nav" href="schedule">Schedule</a></li>
                     <li><a class="nav" href="workshops">Workshops</a></li>
@@ -69,7 +69,7 @@
 </article>
 
 <script>
-	$(function(){
+	(function(){
 		$(document).ready(function(){
 			if(window.location.hash){				
 				var curHref = window.location.hash.substring(2);
