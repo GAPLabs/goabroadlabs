@@ -1,8 +1,9 @@
 <script>
 	var API_KEY = "AIzaSyD2wTEWvdQz26pOxG9eCyrrSO9UdzqvNgg";
+	var map;	
     var directionsService;
     var directionsDisplay;
-	var map;
+	var autocomplete;
 
 	var CENTER_COORDS;
 	var GA_COORDS;
@@ -38,7 +39,6 @@
         
         map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
 	}
-
 
 	function drawInfobubbles() {
 		var image = new google.maps.MarkerImage(
@@ -104,22 +104,26 @@
         };
         autocomplete = new google.maps.places.Autocomplete(input, options); 
         
-        google.maps.event.addListener(autocomplete, 'place_changed', function() {
-            var place = autocomplete.getPlace();
-            if (!place.geometry)
-                return;
+        google.maps.event.addListener(autocomplete, 'place_changed', function(){
+			searchDirections();
+		});
+	}
+	
+	function searchDirections() {
+		var place = autocomplete.getPlace();
+        if (!place || !place.geometry)
+            return;
 
-            if (place.geometry.viewport)
-                map.fitBounds(place.geometry.viewport);
-            else {
-				var latLongBounds = new google.maps.LatLngBounds();
-				latLongBounds.extend(place.geometry.location);
-				latLongBounds.extend(GA_COORDS);
-				map.fitBounds(latLongBounds);
-            }
-            
-            calcRoute(place.geometry.location);
-        });
+        if (place.geometry.viewport)
+            map.fitBounds(place.geometry.viewport);
+        else {
+			var latLongBounds = new google.maps.LatLngBounds();
+			latLongBounds.extend(place.geometry.location);
+			latLongBounds.extend(GA_COORDS);
+			map.fitBounds(latLongBounds);
+        }
+        
+        calcRoute(place.geometry.location);
 	}
 	
     function calcRoute(start) {
@@ -135,12 +139,13 @@
             }
         });
     }
-    
+
     window.onload = loadScript;
 </script>
 
 <section class="column grid_12">
     <div id="map_canvas" style="width:100%; height:800px"></div>
     
-    <input type="text" id="searchTextfield"/>
+    <input type="text" id="searchTextfield" style="width:100%"/>
+	<button onclick="searchDirections()">Get Directions</button>
 </section>
