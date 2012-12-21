@@ -1,46 +1,60 @@
 <script>
+	var API_KEY = "AIzaSyD2wTEWvdQz26pOxG9eCyrrSO9UdzqvNgg";
     var directionsService;
     var directionsDisplay;
+	var map;
+
+	var CENTER_COORDS;
+	var GA_COORDS;
+	var WILMARS_COORDS
     
     function initialize() {
-        var mapOptions = {
+		CENTER_COORDS = new google.maps.LatLng(11.21050, 124.99819);
+		GA_COORDS = new google.maps.LatLng(11.20833, 124.99974);
+		WILMARS_COORDS = new google.maps.LatLng(11.20848, 124.99917);
+		
+        drawMap();
+        drawInfobubbles();
+        loadPlacesAutoComplete();
+
+		directionsService = new google.maps.DirectionsService();
+        directionsDisplay = new google.maps.DirectionsRenderer();
+        directionsDisplay.setMap(map);
+    }
+
+    function loadScript() {
+        var script = document.createElement("script");
+        script.type = "text/javascript";
+        script.src = "http://maps.googleapis.com/maps/api/js?key="+API_KEY+"&libraries=places&sensor=false&callback=initialize";
+        document.body.appendChild(script);
+    }
+
+	function drawMap() {
+		var mapOptions = {
             zoom: 16,
-            center: new google.maps.LatLng(11.208, 124.999),
+            center: CENTER_COORDS,
             mapTypeId: google.maps.MapTypeId.ROADMAP
         }
         
-        var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
-        directionsService = new google.maps.DirectionsService();
-        directionsDisplay = new google.maps.DirectionsRenderer();
-        directionsDisplay.setMap(map);
-        
-        
-        // TODO: refactor infobubbles
-        // use array and iterations :)
-        
-        var image = new google.maps.MarkerImage(
+        map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+	}
+
+
+	function drawInfobubbles() {
+		var image = new google.maps.MarkerImage(
               'http://maps.gstatic.com/mapfiles/place_api/icons/geocode-71.png', new google.maps.Size(71, 71),
               new google.maps.Point(0, 0), new google.maps.Point(17, 34),
               new google.maps.Size(35, 35));
-        
-        var marker = new google.maps.Marker({
-            map: map,
-            icon: image,
-            title: "GoAbroad Philippines",
-            position: new google.maps.LatLng(11.2082, 125.000)
-        });
-        
-        marker = new google.maps.Marker({
-            position: new google.maps.LatLng(11.2082, 125.000),
-            title: "GoAbroad Philippines"
-        });
 
-        marker.setMap(map);
+		var marker = new google.maps.Marker({
+			icon: image,
+			map: map,
+            position: GA_COORDS,
+        });
 
         infoBubble = new InfoBubble({
             map: map,
             content: '<div>GoAbroad Philippines</div>',
-            position: new google.maps.LatLng(11.2082, 125.000),
             shadowStyle: 1,
             padding: '10px',
             backgroundColor: 'rgb(255,255,255)',
@@ -50,23 +64,21 @@
             borderColor: '#2c2c2c',
             disableAutoPan: true,
             hideCloseButton: true,
-            arrowPosition: 7,
-            backgroundClassName: 'phoney',
-            pixelOffset: new google.maps.Size(110, 120),
+            arrowPosition: 5,
+            backgroundClassName: '',
+			minWidth: 150,
             arrowStyle: 2
         });
         
         infoBubble.open(map, marker);
         
         marker = new google.maps.Marker({
-            position: new google.maps.LatLng(11.20848, 124.99917),
-            title: "Wilmar's Mini Mart"
-        });
+                    position: WILMARS_COORDS,
+                });
         
         infoBubble = new InfoBubble({
             map: map,
             content: '<div>Wilmar\'s Mini Mart</div>',
-            position: new google.maps.LatLng(11.20848, 124.99917),
             shadowStyle: 1,
             padding: '10px',
             backgroundColor: 'rgb(255,255,255)',
@@ -76,20 +88,20 @@
             borderColor: '#2c2c2c',
             disableAutoPan: true,
             hideCloseButton: true,
-            arrowPosition: 90,
-            backgroundClassName: 'phoney',
-            pixelOffset: new google.maps.Size(100, 120),
+            arrowPosition: 95,
+            backgroundClassName: '',
             arrowStyle: 1
         });
         
         infoBubble.open(map, marker);
-        
-        var input = document.getElementById('searchTextfield');
+	}
+	
+	function loadPlacesAutoComplete() {
+		var input = document.getElementById('searchTextfield');
         var options = {
           types: ['establishment'],
           componentRestrictions: {country: 'ph'}
         };
-
         autocomplete = new google.maps.places.Autocomplete(input, options); 
         
         google.maps.event.addListener(autocomplete, 'place_changed', function() {
@@ -97,33 +109,24 @@
             if (!place.geometry)
                 return;
 
-            if (place.geometry.viewport) {
+            if (place.geometry.viewport)
                 map.fitBounds(place.geometry.viewport);
-            } 
             else {
-                map.setCenter(place.geometry.location);
-                //NOTE: compute to zoom out so that two points are visible
-                map.setZoom(16);
+				var latLongBounds = new google.maps.LatLngBounds();
+				latLongBounds.extend(place.geometry.location);
+				latLongBounds.extend(GA_COORDS);
+				map.fitBounds(latLongBounds);
             }
             
             calcRoute(place.geometry.location);
         });
-    }
-
-    function loadScript() {
-        var script = document.createElement("script");
-        script.type = "text/javascript";
-        script.src = "http://maps.googleapis.com/maps/api/js?key=AIzaSyD2wTEWvdQz26pOxG9eCyrrSO9UdzqvNgg&libraries=places&sensor=false&callback=initialize";
-        document.body.appendChild(script);
-    }
-    
+	}
+	
     function calcRoute(start) {
-        alert(start);
         var start = start;
-        var end = new google.maps.LatLng(11.2082, 125.000);
         var request = {
             origin:start,
-            destination:end,
+            destination:GA_COORDS,
             travelMode: google.maps.TravelMode.DRIVING
         };
         directionsService.route(request, function(response, status) {
