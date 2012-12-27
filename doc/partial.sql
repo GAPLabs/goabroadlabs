@@ -26,7 +26,7 @@ SET time_zone = "+00:00";
 -- Table structure for table `code`
 --
 
-CREATE TABLE IF NOT EXISTS `code` (
+CREATE TABLE IF NOT EXISTS `codes` (
   `id` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
   `code` varchar(20) NOT NULL,
   `owner` varchar(50) NOT NULL,
@@ -38,7 +38,7 @@ CREATE TABLE IF NOT EXISTS `code` (
 -- Dumping data for table `code`
 --
 
-INSERT INTO `code` (`id`, `code`, `owner`, `description`) VALUES
+INSERT INTO `codes` (`id`, `code`, `owner`, `description`) VALUES
 (1, 'CODEUP1001', 'UP', 'Code for UP. '),
 (2, 'CODELNU2002', 'LNU', 'Code for LNU');
 
@@ -48,7 +48,7 @@ INSERT INTO `code` (`id`, `code`, `owner`, `description`) VALUES
 -- Table structure for table `webcamp_registration`
 --
 
-CREATE TABLE IF NOT EXISTS `webcamp_registration` (
+CREATE TABLE IF NOT EXISTS `webcamp_registrations` (
   `id` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
   `first_name` varchar(100) NOT NULL,
   `last_name` varchar(100) NOT NULL,
@@ -70,7 +70,7 @@ CREATE TABLE IF NOT EXISTS `webcamp_registration` (
 -- Table structure for table `workshop`
 --
 
-CREATE TABLE IF NOT EXISTS `workshop` (
+CREATE TABLE IF NOT EXISTS `workshops` (
   `id` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
   `title` varchar(250) NOT NULL,
   `description` text NOT NULL,
@@ -83,7 +83,7 @@ CREATE TABLE IF NOT EXISTS `workshop` (
 -- Dumping data for table `workshop`
 --
 
-INSERT INTO `workshop` (`id`, `title`, `description`, `facilatators`, `year`) VALUES
+INSERT INTO `workshops` (`id`, `title`, `description`, `facilatators`, `year`) VALUES
 (1, 'Web Development ', 'Basic web development using php.', 'Czar Pino', 2013),
 (2, 'Version Control', 'Basic of version control', 'Farly Taboada', 2013);
 
@@ -94,7 +94,7 @@ INSERT INTO `workshop` (`id`, `title`, `description`, `facilatators`, `year`) VA
 --
 -- Constraints for table `webcamp_registration`
 --
-ALTER TABLE `webcamp_registration`
-  ADD CONSTRAINT `webcamp_registration_ibfk_1` FOREIGN KEY (`first_session`) REFERENCES `workshop` (`id`),
-  ADD CONSTRAINT `webcamp_registration_ibfk_2` FOREIGN KEY (`second_session`) REFERENCES `workshop` (`id`),
-  ADD CONSTRAINT `webcamp_registration_ibfk_3` FOREIGN KEY (`code_id`) REFERENCES `code` (`id`);
+ALTER TABLE `webcamp_registrations`
+  ADD CONSTRAINT `webcamp_registration_ibfk_1` FOREIGN KEY (`first_session`) REFERENCES `workshops` (`id`),
+  ADD CONSTRAINT `webcamp_registration_ibfk_2` FOREIGN KEY (`second_session`) REFERENCES `workshops` (`id`),
+  ADD CONSTRAINT `webcamp_registration_ibfk_3` FOREIGN KEY (`code_id`) REFERENCES `codes` (`id`);
