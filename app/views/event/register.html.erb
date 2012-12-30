@@ -1,1 +1,23 @@
 <%= provide(:title,'GoAbroadLabs WebCamp 2013 - Register')%>
+
+<%= form_for @attendee, :url => { :action => "register" }, :method => "post"  do |form| %>
+    <ul>
+        <li>
+            <%= debug(@attendee) %><%= debug(@code) %><% form.error_messages %>
+        </li>
+        <li>
+            First Name: <%=  form.text_field :first_name %>
+        </li>
+        <li>
+            Last Name: <%= form.text_field :last_name %>
+        </li>
+        <li>
+            Email: <%= form.text_field :email_address %>
+        </li>
+        <li>
+            Code: <%= text_field_tag(:code,@code) %>
+        </li>
+
+        <%= form.submit "Register" %>
+    </ul>
+<% end %>
