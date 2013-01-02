@@ -35,7 +35,8 @@ class EventController < ApplicationController
                 'id' => workshop.id,
                 'title' => workshop.title, 
                 'first_session_count' => WebcampRegistration.where('first_session = ?',workshop.id).size,
-                'second_session_count' => WebcampRegistration.where('second_session = ?',workshop.id).size ] 
+                'second_session_count' => WebcampRegistration.where('second_session = ?',workshop.id).size 
+            ] 
         }        
     end
 end
