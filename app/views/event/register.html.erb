@@ -3,19 +3,23 @@
 <%= form_for @attendee, :url => { :action => "register" }, :method => "post"  do |form| %>
     <ul>
         <li>
-            <%= debug(@attendee) %><%= debug(@code) %><% form.error_messages %>
+            <%= debug(@attendee) %><%= debug(@code) %>
         </li>
         <li>
             First Name: <%=  form.text_field :first_name %>
+            <%= @attendee.errors[:first_name].to_sentence %>
         </li>
         <li>
             Last Name: <%= form.text_field :last_name %>
+            <%= @attendee.errors[:last_name].to_sentence %>
         </li>
         <li>
             Email: <%= form.text_field :email_address %>
+            <%= @attendee.errors[:email_address].to_sentence %>
         </li>
         <li>
             Code: <%= text_field_tag(:code,@code) %>
+            <%= @attendee.errors[:code_id].to_sentence %>
         </li>
 
         <%= form.submit "Register" %>

@@ -6,9 +6,17 @@ class EventController < ApplicationController
 
         @attendee = WebcampRegistration.new(params[:webcamp_registration])
         # @attendee.code = 'Code'
+        code = Codes.where("code = ?", params[:code]).first
+        @attendee.code_id  = code == nil ? 0 : code.id
+
+        # @attendee = Codes.where("code = ?", params[:webcamp_registration][:code]).first
 
         if request.post?
             @code = params[:code]
+            if @attendee.valid?
+                @attendee.date_registered = Date.today
+                @attendee.status = 3  
+            end
             # @code = Codes.where("code = ?", params[:webcamp_registration][:code]).first
 
             # @attendee.code_id = @code.id unless @code == nil
