@@ -16,6 +16,10 @@ class EventController < ApplicationController
             if @attendee.valid?
                 @attendee.date_registered = Date.today
                 @attendee.status = 3
+
+                session[:attendee] = @attendee
+
+                redirect_to webcamp_select_workshop_path 
             end
             # @code = Codes.where("code = ?", params[:webcamp_registration][:code]).first
 
@@ -33,6 +37,12 @@ class EventController < ApplicationController
         # attendee.save
     end
 
-    def create
+    def workshops
+        @attendee = session[:attendee]
+
+        @code = Codes.find(@attendee.code_id)
+
+        redirect_to webcamp_register_path if @attendee == nil
+        
     end
 end

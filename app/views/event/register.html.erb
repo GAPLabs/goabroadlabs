@@ -1,27 +1,30 @@
 <%= provide(:title,'GoAbroadLabs WebCamp 2013 - Register')%>
 
-<%= form_for @attendee, :url => { :action => "register" }, :method => "post"  do |form| %>
-    <ul>
-        <li>
-            <%= debug(@attendee) %><%= debug(@code) %><%= debug(@cookie) %>
-        </li>
-        <li>
-            First Name: <%=  form.text_field :first_name %>
-            <%= @attendee.errors[:first_name].to_sentence %>
-        </li>
-        <li>
-            Last Name: <%= form.text_field :last_name %>
-            <%= @attendee.errors[:last_name].to_sentence %>
-        </li>
-        <li>
-            Email: <%= form.text_field :email_address %>
-            <%= @attendee.errors[:email_address].to_sentence %>
-        </li>
-        <li>
-            Code: <%= text_field_tag(:code,@code) %>
-            <%= @attendee.errors[:code_id].to_sentence %>
-        </li>
-
-        <%= form.submit "Register" %>
-    </ul>
+<% content_for :registration do %>
+    <section class="column grid_12">
+        <div class="row">
+            <div class="column grid_12">
+                <div class="box grid_5">
+                    <h2>Registration</h2>
+                    <%= form_for @attendee, :url => { :action => "register" }, :method => "post"  do |form| %>
+                        <label>
+                            <%= form.error_messages  %>
+                        </label>
+                        <label>
+                            <%= form.text_field :first_name, :size => 23, :placeHolder => "First Name" %>
+                            <%= form.text_field :last_name, :size => 23, :placeHolder => "Last Name" %>
+                        </label>
+                        <label>
+                            <%= form.text_field :email_address, :size => 50, :placeHolder => "Your Email" %>
+                        </label>
+                        <label>
+                            <%= text_field_tag(:code,@code || "Your School Code",:size=>50) %>
+                        </label>
+                        <label><span>By clicking Reserve me a seat, you agree to our <a href="">Terms</a> and that you have read our <a href="">Data Use Policy</a>, including our <a href="">Cookie Use</a>.</span></label>
+                        <input type="submit" value="Submit">    
+                    <% end %>
+                </div>
+            </div>
+        </div>
+    </section>
 <% end %>

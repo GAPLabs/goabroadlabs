@@ -36,7 +36,7 @@ input[type=text], input[type=password], input[type=url], input[type=email], inpu
 input.text, input.title, textarea, select {
   background-color:#fff;
   border:1px solid #bbb;
-  color:#333;
+  color:#999;
   padding: 4px 8px;
 }
 input[type=text]:focus, input[type=password]:focus, input[type=url]:focus, input[type=email]:focus,
@@ -71,6 +71,7 @@ label span + input[type=text] { margin-right: 1em; }
 form .reg_box { -moz-padding-start: 3em; -webkit-padding-start: 3em; }
 form .reg_box h3 { -moz-margin-start: -1em; -webkit-margin-start: -1em; }
 form .reg_box + .reg_box { padding-top: 0.5em; padding-bottom: 2em; }
+label > span { display: block; font-size: 0.9em; margin-top: 0.3em; color: #999; }
 
 /* checkbox and radio */ 
 
@@ -82,7 +83,7 @@ input[type=checkbox] + span, input[type=radio] + span { margin-left: 0.5em; marg
 select { min-width: 145px; height: 27px; padding: 6px 0 4px 8px; background-color: #fff; border-radius: 0; -webkit-appearance:none; -moz-appearance: none; appearance: none; display: inline-block; }
 .select { position: relative; display: inline-block; margin-right: 1em; height: 27px; }
 .select:after {
-	background: #fff url('../../images/select.png') no-repeat center center;
+  background: #fff url('../../images/select.png') no-repeat center center;
     content: '';
     pointer-events: none;
     height: 24px;
@@ -98,23 +99,7 @@ select { min-width: 145px; height: 27px; padding: 6px 0 4px 8px; background-colo
 .file .origin { position:absolute; top:0; right:0; opacity:0; -moz-opacity:0; filter:alpha(opacity:0); z-index:2; }
 
 /* Submit and Buttons */
-input[type=submit], button { background-color: #fff; color: #616161; border: 1px solid #ddd; height: auto; padding: 4px 10px; 
-							 background-image: linear-gradient(bottom, rgb(245,245,245) 22%, rgb(241,241,241) 61%);
-							 background-image: -o-linear-gradient(bottom, rgb(245,245,245) 22%, rgb(241,241,241) 61%);
-							 background-image: -moz-linear-gradient(bottom, rgb(245,245,245) 22%, rgb(241,241,241) 61%);
-							 background-image: -webkit-linear-gradient(bottom, rgb(245,245,245) 22%, rgb(241,241,241) 61%);
-							 background-image: -ms-linear-gradient(bottom, rgb(245,245,245) 22%, rgb(241,241,241) 61%);
-
-							 background-image: -webkit-gradient(
-								linear,
-								left bottom,
-								left top,
-								color-stop(0.22, rgb(245,245,245)),
-								color-stop(0.61, rgb(241,241,241))
-);
-
-
-}
+input[type=submit], button { background-color: #00A8E2; color: #fff; border: none; height: auto; padding: 4px 10px; }
 input[type=submit]:hover, button:hover { border-color: #bbb; box-shadow:1px 1px 2px #ddd; color: #333; }
 
 /* Success, info, notice and error/alert boxes

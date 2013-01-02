@@ -1,0 +1,41 @@
+<%= provide(:title,'GoAbroadLabs WebCamp 2013 - Register')%>
+
+
+
+<% content_for :registration do %>
+
+    <section class="column grid_12">
+        <div class="row">
+
+            <div class="column grid_12">
+                <div class="box grid_7">
+                    <h2>Hi, <span class="mntxt"><%= @attendee.name %></span><span class="unitxt">from <span><%= @code.owner %></span></span></h2>
+                    <p>You can select 1 workshop each session, total of 2 workshops</p>
+                    
+                    <form>
+                        <div class="session">
+                            <h3>Session 1 <span>- starts at 9:00am</span></h3>
+                            <ul>
+                                <li><input type="radio" value="1" name="1" checked="checked"><span>HTML and CSS ( <span>4 seats left</span> )</span></li>
+                                <li><input type="radio" value="2" name="1"><span>Jquery ( <span>3 seats left</span> )</span></li>
+                                <li><input type="radio" value="3" name="1" disabled><span>MVC ( <span>This session is fully book</span> )</span></li>
+                                <li><input type="radio" value="4" name="1"><span>Version Control ( <span>13 seats left</span> )</span></li>
+                            </ul>
+                        </div>
+                        <div class="session">
+                            <h3>Session 2 <span>- starts at 11:00am</span></h3>
+                            <ul>
+                                <li><input type="radio" value="1" name="2" disabled><span>HTML and CSS ( <span>You already select this one</span> )</span></li>
+                                <li><input type="radio" value="2" name="2"><span>Jquery ( <span>3 seats left</span> )</span></li>
+                                <li><input type="radio" value="3" name="2" disabled><span>MVC ( <span>This session is fully book</span> )</span></li>
+                                <li><input type="radio" value="4" name="2"><span>Version Control ( <span>13 seats left</span> )</span></li>
+                            </ul>
+                        </div>      
+                        
+                        <input type="submit" value="Proceed">                       
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+<% end %>
