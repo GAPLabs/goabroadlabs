@@ -3,7 +3,7 @@
 <%= form_for @attendee, :url => { :action => "register" }, :method => "post"  do |form| %>
     <ul>
         <li>
-            <%= debug(@attendee) %><%= debug(@code) %>
+            <%= debug(@attendee) %><%= debug(@code) %><%= debug(@cookie) %>
         </li>
         <li>
             First Name: <%=  form.text_field :first_name %>
