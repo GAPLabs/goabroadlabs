@@ -12,9 +12,12 @@ img.fr { margin-left: 10px; }
 .header nav { margin-top: 1em; }
 .header h1 { float: left; margin: 0;  }
 
-h2 span:first-child { color: #aaa; }
-h2 span+span { color: #c8386d; }
+h2 span:first-child, h3 span:first-child { color: #aaa; }
+h2 span + span { color: #c8386d; }
+h2 span.mntxt { color: #00a8e2;  }  
 h2 span.subtxt, p span.subtxt { display: block; font-size: 0.7em; color: #00a8e2; }
+h2 span.unitxt { color: #aaa; display: block; font-size: 0.7em; }
+h2 span.unitxt > span { color: #c8386d; }
 
 /* ads */
 .hd > section > div { background:#000 url('../../images/hdposter.jpg') no-repeat bottom center; padding: 4em 0 2em; text-align: center; color: #ddd; font-size: 1.8em; }
@@ -42,6 +45,14 @@ ul li { margin-right: 10px; margin-bottom: 5px; }
 .sched .title { color: #00a8e2; font-size: 1.2em; font-weight: 400; margin-left: 5.8em}
 .sched p { margin: 0 0 0 7em; }
 
+.session { float: left; margin: 1em 5em 1em 0; }
+.session + .session { margin: 1em 0; }
+.session input[type="radio"] + span > span { border-bottom: 1px dotted #000; font-style: italic; }
+.session input[type='radio']:disabled + span { opacity: 0.5; } 
+.session input[type='radio']:disabled + span > span { border: none; }
+.session input[type='radio']:checked + span { color: #00A8E2; }
+.session input[type='radio']:checked + span > span { color: #00A8E2; border-color: #00A8E2; }
+
 .workshop li { float: left; margin: 0 5em 2em 0; display: table; height: 150px; }
 .workshop li:nth-child(3n+3) { clear: both; }
 .workshop div { display: table-cell; vertical-align: middle; height: 100%; }
@@ -54,7 +65,8 @@ ul li { margin-right: 10px; margin-bottom: 5px; }
 .bl { display: block; }
 .hd section { background: #fff url('../../images/divider_arrow_1.png') no-repeat bottom center; } 
 section { padding-bottom: 2.5em; background: url('../../images/divider_arrow_2.png') no-repeat bottom center, url('../../images/divider_dot.png') repeat-x bottom center #fff; } 
-.box { padding: 3em 5em; overflow: hidden; }
+.box { margin: auto; padding: 3em 5em; overflow: hidden; }
+.box.grid_6 { text-align: center; }
 .grid_6:first-child > .box, .grid_8:first-child > .box  { padding: 3em 1em 3em 5em; }
 .grid_6:last-child > .box, .grid_4:last-child > .box  { padding: 3em 5em 3em 1em; }
 article:last-child section, footer section { background-image: none; padding: 0; }
