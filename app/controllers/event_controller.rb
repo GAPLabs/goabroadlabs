@@ -1,4 +1,6 @@
 class EventController < ApplicationController
+    layout "webcamp"
+
     def main
     end
 
