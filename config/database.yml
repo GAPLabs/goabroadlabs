@@ -20,8 +20,8 @@ development:
 #   timeout: 5000
 
 production:
-  adapter: mysql2
-  database: goabroadlabs
-  user: root
-  password: root
-  host: localhost
+  adapter: pg
+  database: d1gv0rluk8l140
+  user: qqronpohszxfmc
+  password: Xlf3hqMraqPtv4mBj_TT_Xcesg
+  host: ec2-54-243-188-54.compute-1.amazonaws.com
