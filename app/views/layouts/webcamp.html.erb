@@ -201,7 +201,7 @@
         <article class="row" id="venue">
             <%= render :partial => "event/venue" %>
         </article>
-        <article class="row nodivider">
+        <article class="row nodivider" id="sponsors">
             <section class="column grid_12">
                 <div class="box">
                     <h2>Sponsors<span class="subtxt">subtitles are subtracted and become one</span></h2>
@@ -241,6 +241,8 @@
                 });
             })(jQuery);
         </script>
+
+        <%= content_for :script %>
     </body>
     <footer class="row">
         <section class="column grid_12">

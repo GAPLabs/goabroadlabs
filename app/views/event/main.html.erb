@@ -27,7 +27,12 @@
                     <div class="registration-notice success">
                         <%= flash[:success] %>
                     </div>
-                <% end %>    
+                <% end %> 
+                <% if !flash.empty? %>   
+                    <% content_for :script do %>
+                        <%= javascript_include_tag "registration.js" %>
+                    <% end %>
+                <% end %>
             </div>   
         </div>    
 

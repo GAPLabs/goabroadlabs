@@ -38,7 +38,7 @@ class EventController < ApplicationController
     def workshops 
         @attendee = session[:attendee]
 
-        redirect_to webcamp_register_path if @attendee == nil
+        redirect_to webcamp_register_path and return if @attendee == nil
 
         @code = Codes.find(@attendee.code_id)
 
@@ -64,10 +64,19 @@ class EventController < ApplicationController
     def finish
         @attendee = session[:attendee]
 
-        if request.post?
-            @attendee.save
+        redirect_to webcamp_main_path and return if @attendee == nil
 
-            flash[:success] = "#{@attendee.name}, see you at WebCamp!"
+        if request.post?
+
+            if @attendee.valid?
+                @attendee.save
+
+                session.delete :attendee
+
+                flash[:success] = "#{@attendee.name}, see you at WebCamp!"
+            else
+                flash[:fail] = "Error while saving your registration! Try again.."
+            end    
 
             redirect_to webcamp_main_path and return
         end    
