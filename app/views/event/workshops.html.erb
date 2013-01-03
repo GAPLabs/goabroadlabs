@@ -16,9 +16,9 @@
                             <ul>
                                 <% @workshops.each do |workshop|  %>
                                 <li>
-                                    <input type="radio" value="<%= workshop['id'] %>" name="first_session" />
+                                    <input type="radio" value="<%= workshop['id'] %>" name="first_session" id=<%= "first_session_#{workshop['id']}" %> />
                                         <span><%= workshop['title'] %> 
-                                            ( <span><%= 25 - workshop['first_session_count'] %> seats left</span> )
+                                            ( <span><%= @session_limit - workshop['first_session_count'] %> seats left</span> )
                                         </span>
                                 </li>
                                 <% end %>
@@ -29,9 +29,9 @@
                             <ul>
                                 <% @workshops.each do |workshop|  %>
                                 <li>
-                                    <input type="radio" value="<%= workshop['id'] %>" name="second_session" />
+                                    <input type="radio" value="<%= workshop['id'] %>" name="second_session" id=<%= "second_session_#{workshop['id']}" %>  <%= "disabled" if @session_limit - workshop['second_session_count'] <= 0 %> />
                                         <span><%= workshop['title'] %> 
-                                            ( <span><%= 25 - workshop['second_session_count'] %> seats left</span> )
+                                            ( <span><%= @session_limit - workshop['second_session_count'] %> seats left</span> )
                                         </span>
                                 </li>
                                 <% end %>
@@ -47,5 +47,38 @@
 <% end %>
 
 <% content_for :script do %>
-    <%= javascript_include_tag "registration.js" %>
+    <script type="text/javascript">
+        (function($){
+            $(document).ready(function(){
+
+                var curHref = 'registration';
+                $('.selected').removeClass('selected');
+                $('a[href="'+curHref+'"]').parent().addClass('selected');
+                var offset = $('#'+curHref).offset();
+                scrollToArticle(offset);
+                
+                function scrollToArticle(offset){
+                    $('html, body').animate({
+                        scrollTop: offset.top - 125
+                    }, 500);
+                }
+
+                $("input[name=first_session]").each(function(){
+                    $(this).click(function(){
+                        var i =  $(this).val();
+                        $('input[name=second_session]').removeAttr('disabled');
+                        $('#second_session_'+i).attr('disabled','disabled');
+                    });
+                });
+
+                $("input[name=second_session]").each(function(){
+                    $(this).click(function(){
+                        var i =  $(this).val();
+                        $('input[name=first_session]').removeAttr('disabled');
+                        $('#first_session_'+i).attr('disabled','disabled');
+                    });
+                });
+            });
+        })(jQuery);
+    </script>
 <% end %>

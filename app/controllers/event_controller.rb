@@ -36,6 +36,8 @@ class EventController < ApplicationController
     end
 
     def workshops 
+        @session_limit = 25
+
         @attendee = session[:attendee]
 
         redirect_to webcamp_register_path and return if @attendee == nil
