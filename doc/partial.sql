@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 3.5.3
+-- version 3.5.5
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Dec 24, 2012 at 06:14 AM
+-- Generation Time: Jan 03, 2013 at 12:55 AM
 -- Server version: 5.5.28
--- PHP Version: 5.4.8
+-- PHP Version: 5.4.10
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -23,7 +23,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `code`
+-- Table structure for table `codes`
 --
 
 CREATE TABLE IF NOT EXISTS `codes` (
@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS `codes` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
--- Dumping data for table `code`
+-- Dumping data for table `codes`
 --
 
 INSERT INTO `codes` (`id`, `code`, `owner`, `description`) VALUES
@@ -45,7 +45,7 @@ INSERT INTO `codes` (`id`, `code`, `owner`, `description`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `webcamp_registration`
+-- Table structure for table `webcamp_registrations`
 --
 
 CREATE TABLE IF NOT EXISTS `webcamp_registrations` (
@@ -59,15 +59,13 @@ CREATE TABLE IF NOT EXISTS `webcamp_registrations` (
   `status` tinyint(1) NOT NULL,
   `date_registered` datetime NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `first_session` (`first_session`,`second_session`),
-  KEY `second_session` (`second_session`),
   KEY `code_id` (`code_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `workshop`
+-- Table structure for table `workshops`
 --
 
 CREATE TABLE IF NOT EXISTS `workshops` (
@@ -77,24 +75,24 @@ CREATE TABLE IF NOT EXISTS `workshops` (
   `facilatators` text NOT NULL,
   `year` year(4) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
 --
--- Dumping data for table `workshop`
+-- Dumping data for table `workshops`
 --
 
 INSERT INTO `workshops` (`id`, `title`, `description`, `facilatators`, `year`) VALUES
-(1, 'Web Development ', 'Basic web development using php.', 'Czar Pino', 2013),
-(2, 'Version Control', 'Basic of version control', 'Farly Taboada', 2013);
+(1, 'Jquery', 'Simple Jquery ', 'Yan Barreta', 2013),
+(2, 'HTML and CSS', 'Basic html and css', 'Nick Aguilos', 2013),
+(3, 'Web Development ', 'Basic web development using php.', 'Czar Pino', 2013),
+(4, 'Version Control', 'Basic of version control', 'Farly Taboada', 2013);
 
 --
 -- Constraints for dumped tables
 --
 
 --
--- Constraints for table `webcamp_registration`
+-- Constraints for table `webcamp_registrations`
 --
 ALTER TABLE `webcamp_registrations`
-  ADD CONSTRAINT `webcamp_registration_ibfk_1` FOREIGN KEY (`first_session`) REFERENCES `workshops` (`id`),
-  ADD CONSTRAINT `webcamp_registration_ibfk_2` FOREIGN KEY (`second_session`) REFERENCES `workshops` (`id`),
-  ADD CONSTRAINT `webcamp_registration_ibfk_3` FOREIGN KEY (`code_id`) REFERENCES `codes` (`id`);
+  ADD CONSTRAINT `webcamp_registrations_ibfk_3` FOREIGN KEY (`code_id`) REFERENCES `codes` (`id`);
