@@ -11,9 +11,11 @@ GoAroadLabs::Application.routes.draw do
     # Keep in mind you can assign values other than :controller and :action
     match '/event' => 'event#main', :as => :webcamp_main
 
-    match '/register' => 'event#register', :as => :webcamp_register
+    match '/event/register' => 'event#register', :as => :webcamp_register
 
-    match '/select-workshop' => 'event#workshops', :as => :webcamp_select_workshop
+    match '/event/select-workshop' => 'event#workshops', :as => :webcamp_select_workshop
+
+    match '/event/finish-registration' => 'event#finish', :as => :finish_registration
 
     # Sample of named route:
     #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
