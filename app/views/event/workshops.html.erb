@@ -1,7 +1,5 @@
 <%= provide(:title,'GoAbroadLabs WebCamp 2013 - Register')%>
 
-
-
 <% content_for :registration do %>
 
     <section class="column grid_12">
@@ -11,13 +9,14 @@
                 <div class="box grid_7">
                     <h2>Hi, <span class="mntxt"><%= @attendee.name %></span><span class="unitxt">from <span><%= @code.owner %></span></span></h2>
                     <p>You can select 1 workshop each session, total of 2 workshops</p>
-                    <form method="post">
+                    
+                    <%= form_tag({},:method => 'post') do %>
                         <div class="session">
                             <h3>Session 1 <span>- starts at 9:00am</span></h3>
                             <ul>
                                 <% @workshops.each do |workshop|  %>
                                 <li>
-                                    <input type="radio" value="<%= workshop['id'] %>" name="first_session" checked="checked" />
+                                    <input type="radio" value="<%= workshop['id'] %>" name="first_session" />
                                         <span><%= workshop['title'] %> 
                                             ( <span><%= 25 - workshop['first_session_count'] %> seats left</span> )
                                         </span>
@@ -30,7 +29,7 @@
                             <ul>
                                 <% @workshops.each do |workshop|  %>
                                 <li>
-                                    <input type="radio" value="<%= workshop['id'] %>" name="second_session" checked="checked" />
+                                    <input type="radio" value="<%= workshop['id'] %>" name="second_session" />
                                         <span><%= workshop['title'] %> 
                                             ( <span><%= 25 - workshop['second_session_count'] %> seats left</span> )
                                         </span>
@@ -39,8 +38,8 @@
                             </ul>
                         </div>      
                         
-                        <input type="submit" value="Proceed">                       
-                    </form>
+                        <input type="submit" value="Proceed" />                       
+                    <% end %>
                 </div>
             </div>
         </div>

@@ -7,14 +7,29 @@
                     <p>Nunc non nulla sit amet enim auctor lobortis at eu enim. Fusce euismod molestie sem non vestibulum. Suspendisse mauris mi, vestibulum ut tincidunt vel, tristique eu ante. Cras fermentum volutpat pretium. In fermentum nisi ut nulla luctus et eleifend turpis hendrerit. Suspendisse iaculis risus nec elit volutpat hendrerit vitae sed nibh. Proin enim elit, porttitor non sollicitudin et, varius sed nisi. Proin gravida aliquet justo, sit amet euismod ligula faucibus a. Donec porttitor egestas venenatis.</p>
                     <p>Suspendisse mauris mi, vestibulum ut tincidunt vel, tristique eu ante.</p>
                 </div>
-            </div>
+            </div>  
             <div class="column grid_4">
                 <div class="reserved box">
                     <h2>Reserve your Seat</h2>
-                    <p><span class="subtxt">We still have some seat for you</span></p>
+                    <p><span class="subtxt">We still have some seats for you</span></p>
                     <%= link_to "Register here", webcamp_register_path %>
                 </div>
             </div>      
         </div>
+        <div class="row">
+            <div class="column grid_12">
+                <% if flash[:fail] %>
+                    <div class="registration-notice fail">
+                        <%= flash[:fail] %>
+                    </div>
+                <% end %>
+                <% if flash[:success]%>
+                    <div class="registration-notice success">
+                        <%= flash[:success] %>
+                    </div>
+                <% end %>    
+            </div>   
+        </div>    
+
     </section>
 <% end %>

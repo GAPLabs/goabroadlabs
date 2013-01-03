@@ -1,0 +1,21 @@
+<%= provide(:title,'GoAbroadLabs WebCamp 2013 - Register')%>
+
+<% content_for :registration do %>
+    <section class="column grid_12">
+        <div class="row">
+            <div class="column grid_12">
+                <div class="box grid_6">
+                    <h2>Hi, <span class="mntxt"><%= @attendee.name %></span><span class="unitxt">from <span><%= @code.owner %></span></span></h2>
+                    <% if @workshops.length > 0 %>
+                    <h3>You have selected <%= @workshops %> workshop for the GoAbroad Labs Webcamp 2013.</h3>
+                    <% else %>
+                    <h3>You have not selected any workshop for the GoAbroad Labs Webcamp 2013.</h3>
+                    <% end %>
+                    <form method="post">
+                        <input type="submit" value="Finish">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+<% end %>
