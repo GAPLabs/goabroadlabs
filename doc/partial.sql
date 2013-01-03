@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jan 03, 2013 at 12:55 AM
+-- Generation Time: Jan 03, 2013 at 01:24 AM
 -- Server version: 5.5.28
 -- PHP Version: 5.4.10
 
@@ -54,8 +54,8 @@ CREATE TABLE IF NOT EXISTS `webcamp_registrations` (
   `last_name` varchar(100) NOT NULL,
   `email_address` varchar(100) NOT NULL,
   `code_id` smallint(5) unsigned NOT NULL,
-  `first_session` smallint(5) unsigned NOT NULL,
-  `second_session` smallint(5) unsigned NOT NULL,
+  `first_session` smallint(5) unsigned NOT NULL DEFAULT '0',
+  `second_session` smallint(5) unsigned NOT NULL DEFAULT '0',
   `status` tinyint(1) NOT NULL,
   `date_registered` datetime NOT NULL,
   PRIMARY KEY (`id`),
