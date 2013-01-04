@@ -21,6 +21,7 @@ development:
 
 production:
   adapter: pg
+  encoding: unicode
   pool: 5
   database: d1gv0rluk8l140
   user: qqronpohszxfmc

@@ -23,6 +23,7 @@ end
 group :production do
   gem 'pg'
   gem 'thin'
+  gem 'taps'
 end
 
 gem 'jquery-rails'
