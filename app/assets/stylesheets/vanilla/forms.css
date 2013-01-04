@@ -94,9 +94,9 @@ select { min-width: 145px; height: 27px; padding: 6px 0 4px 8px; background-colo
 }
 
 /* upload file */
-.file { position: relative; display: inline-block; margin-right: 1em; }
+/*.file { position: relative; display: inline-block; margin-right: 1em; }
 .file input[type=text], .file input[type=file] { min-width: 145px; }
-.file .origin { position:absolute; top:0; right:0; opacity:0; -moz-opacity:0; opacity:0 ; z-index:2; }
+.file .origin { position:absolute; top:0; right:0; opacity:0; -moz-opacity:0; filter:alpha(opacity:0); z-index:2; }*/
 
 /* Submit and Buttons */
 input[type=submit], button { background-color: #00A8E2; color: #fff; border: none; height: auto; padding: 4px 10px; }
