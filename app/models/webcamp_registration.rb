@@ -6,7 +6,7 @@ class WebcampRegistration < ActiveRecord::Base
     validates :first_name, :last_name, :email_address, :presence => "true", 
         :length => { :maximum => 100, :too_long => "must not be more than %{count} characters" } 
     validates :code_id, 
-        :numericality => { :only_integer => true, :greater_than => 0, :message => 'you are not allowed to register. please input valid code' }
+        :numericality => { :only_integer => true, :greater_than => 0, :message => 'is not valid' }
     validates :email_address, :email => true, :uniqueness => true
 
     before_save :set_date_registered

@@ -19,7 +19,7 @@ class EventController < ApplicationController
         if request.post?
             @code = params[:code]
 
-            attendees = WebcampRegistration.find_all_by_code_id(code.id).count
+            attendees = WebcampRegistration.find_all_by_code_id(@attendee.code_id).count
 
             if attendees >= limit
                 flash[:fail] = "Your school reached its max participants"
