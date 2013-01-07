@@ -29,8 +29,8 @@
                     </div>
                 <% end %> 
                 <% if !flash.empty? %>   
-                    <% content_for :script do %>
-                        <%= javascript_include_tag "registration.js" %>
+                    <% provide :script do %>
+                        <%= javascript_include_tag "registration" %>
                     <% end %>
                 <% end %>
             </div>   
