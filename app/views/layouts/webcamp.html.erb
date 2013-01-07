@@ -217,8 +217,7 @@
                         var curHref = window.location.hash.substring(2);
                         $('.selected').removeClass('selected');
                         $('a[href="'+curHref+'"]').parent().addClass('selected');
-                        var offset = $('#'+curHref).offset();
-                        scrollToArticle(offset);
+                        scrollToArticle(curHref);
                     }
                     
                     $(".nav").on('click',function(){
@@ -226,16 +225,18 @@
                         $(this).parent().addClass('selected');
                         
                         var curHref = $(this).attr('href');
-                        var offset = $('#'+curHref).offset();
                         location.hash = '_'+curHref;
                         
-                        scrollToArticle(offset);
+                        scrollToArticle(curHref);
                         return false;   
                     });
                     
-                    function scrollToArticle(offset){
+                    function scrollToArticle(article){
+						var offset = $('#'+article).offset();
+						var adjustment = article == 'venue' ? 87 : 125;
+						
                         $('html, body').animate({
-                            scrollTop: offset.top - 125
+                            scrollTop: offset.top - adjustment
                         }, 500);
                     }
                 });
