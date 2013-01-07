@@ -13,4 +13,4 @@
 //= require jquery
 //= require jquery_ujs
 //= require infobubble.js
-//= depend_on customcalls/registration.js
+//= depend_on customcalls/registration
