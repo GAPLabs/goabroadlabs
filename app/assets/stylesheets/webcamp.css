@@ -1,8 +1,8 @@
 /*
-*= depend_on vanilla/grid.css
-*= depend_on vanilla/typography.css
-*= depend_on vanilla/forms.css
-*= depend_on vanilla/default.css
+*= require vanilla/grid.css
+*= require vanilla/typography.css
+*= require vanilla/forms.css
+*= require vanilla/default.css
 */
 
 @import url("vanilla/grid.css");
