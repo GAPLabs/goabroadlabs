@@ -242,7 +242,7 @@
             })(jQuery);
         </script>
 
-        <%= yield :script %>
+        <%= yield(:script).presence %>
     </body>
     <footer class="row">
         <section class="column grid_12">
