@@ -9,7 +9,7 @@
         
         function scrollToArticle(offset){
             $('html, body').animate({
-                scrollTop: offset.top - 120
+                scrollTop: offset.top - 108
             }, 500);
         }
     });
