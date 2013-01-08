@@ -1,8 +1,8 @@
 class CreateCodes < ActiveRecord::Migration
-  def change
-    create_table :codes do |t|
+    def change
+        create_table :codes do |t|
 
-      t.timestamps
+            t.timestamps
+        end
     end
-  end
 end

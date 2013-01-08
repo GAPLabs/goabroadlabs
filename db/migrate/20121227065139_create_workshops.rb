@@ -1,8 +1,8 @@
 class CreateWorkshops < ActiveRecord::Migration
-  def change
-    create_table :workshops do |t|
+    def change
+        create_table :workshops do |t|
 
-      t.timestamps
+            t.timestamps
+        end
     end
-  end
 end
