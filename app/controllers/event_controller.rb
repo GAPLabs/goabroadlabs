@@ -36,30 +36,46 @@ class EventController < ApplicationController
     end
 
     def workshops 
-        @session_limit = 25
+        session_limit = 25
 
         @attendee = session[:attendee]
+
+        @selected_workshops = Array.new(4) { 0 }
 
         redirect_to webcamp_register_path and return if @attendee == nil
 
         @code = Codes.find(@attendee.code_id)
 
         workshops = Workshops.all
-        
         @workshops = workshops.map { |workshop|
             Hash[
                 'id' => workshop.id,
-                'title' => workshop.title, 
-                'first_session_count' => WebcampRegistration.where('first_session = ?',workshop.id).size,
-                'second_session_count' => WebcampRegistration.where('second_session = ?',workshop.id).size 
+                'name' => workshop.title, 
+                'first_session_left' => session_limit - WebcampRegistration.where('first_session = ?',workshop.id).size,
+                'second_session_left' => session_limit - WebcampRegistration.where('second_session = ?',workshop.id).size,
+                'third_session_left' => session_limit - WebcampRegistration.where('second_session = ?',workshop.id).size,
+                'fourth_session_left' => session_limit - WebcampRegistration.where('second_session = ?',workshop.id).size 
             ] 
         }
 
+        @with_error = false
+
         if request.post?
-            @attendee.first_session = params[:first_session] == nil ? 0 : params[:first_session] 
-            @attendee.second_session = params[:second_session] == nil ? 0 : params[:second_session]
-            
-            redirect_to finish_registration_path  and return          
+
+            @selected_workshops = params[:workshops]
+
+            unique = @selected_workshops.uniq.count
+
+            if unique  == @selected_workshops.count
+                @attendee.first_session = @selected_workshops[0]
+                @attendee.second_session = @selected_workshops[1]
+                @attendee.third_session = @selected_workshops[2]
+                @attendee.fourth_session = @selected_workshops[3]
+
+                redirect_to finish_registration_path  and return          
+            else
+                @with_error = true
+            end
         end
     end
 
@@ -87,12 +103,16 @@ class EventController < ApplicationController
 
         first_session = Workshops.find(@attendee.first_session) if @attendee.first_session > 0
         second_session = Workshops.find(@attendee.second_session) if @attendee.second_session > 0
+        third_session = Workshops.find(@attendee.third_session) if @attendee.third_session > 0
+        fourth_session = Workshops.find(@attendee.fourth_session) if @attendee.fourth_session > 0
         
         workshops = Array[]
 
         workshops << first_session.title unless first_session == nil
         workshops << second_session.title unless second_session == nil
+        workshops << third_session.title unless third_session == nil
+        workshops << fourth_session.title unless fourth_session == nil
 
-        @workshops = workshops.join(" And ")
+        @workshops = workshops.join(", ")
     end
 end
