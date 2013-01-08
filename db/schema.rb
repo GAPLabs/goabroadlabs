@@ -26,6 +26,8 @@ ActiveRecord::Schema.define(:version => 0) do
     t.integer  "code_id",         :limit => 2,                     :null => false
     t.integer  "first_session",   :limit => 2,   :default => 0,    :null => false
     t.integer  "second_session",  :limit => 2,   :default => 0,    :null => false
+    t.integer  "third_session",   :limit => 2,   :default => 0,    :null => false
+    t.integer  "fourth_session",  :limit => 2,   :default => 0,    :null => false
     t.boolean  "status",                         :default => true, :null => false
     t.datetime "date_registered",                                  :null => false
   end
