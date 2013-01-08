@@ -32,7 +32,7 @@
                                     <select name="workshops[]">
                                         <% @workshops.each do |workshop| %>
                                             <option value="<%= workshop['id'] %>" <%= "selected" if workshop['id'] == @selected_workshops[1].to_i %> >
-                                                <%="#{workshop['name']} Workshop (#{workshop['first_session_left']} slots left)"%>
+                                                <%="#{workshop['name']} Workshop (#{workshop['second_session_left']} slots left)"%>
                                             </option>
                                         <% end %>
                                     </select>
@@ -48,7 +48,7 @@
                                     <select name="workshops[]">
                                         <% @workshops.each do |workshop| %>
                                             <option value="<%= workshop['id'] %>" <%= "selected" if workshop['id'] == @selected_workshops[2].to_i %> >
-                                                <%="#{workshop['name']} Workshop (#{workshop['first_session_left']} slots left)"%>
+                                                <%="#{workshop['name']} Workshop (#{workshop['third_session_left']} slots left)"%>
                                             </option>
                                         <% end %>
                                     </select>
@@ -60,7 +60,7 @@
                                     <select name="workshops[]">
                                         <% @workshops.each do |workshop| %>
                                             <option value="<%= workshop['id'] %>" <%= "selected" if workshop['id'] == @selected_workshops[3].to_i %> >
-                                                <%="#{workshop['name']} Workshop (#{workshop['first_session_left']} slots left)"%>
+                                                <%="#{workshop['name']} Workshop (#{workshop['fourth_session_left']} slots left)"%>
                                             </option>
                                         <% end %>
                                     </select>

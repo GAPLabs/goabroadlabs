@@ -53,8 +53,8 @@ class EventController < ApplicationController
                 'name' => workshop.title, 
                 'first_session_left' => session_limit - WebcampRegistration.where('first_session = ?',workshop.id).size,
                 'second_session_left' => session_limit - WebcampRegistration.where('second_session = ?',workshop.id).size,
-                'third_session_left' => session_limit - WebcampRegistration.where('second_session = ?',workshop.id).size,
-                'fourth_session_left' => session_limit - WebcampRegistration.where('second_session = ?',workshop.id).size 
+                'third_session_left' => session_limit - WebcampRegistration.where('third_session = ?',workshop.id).size,
+                'fourth_session_left' => session_limit - WebcampRegistration.where('fourth_session = ?',workshop.id).size 
             ] 
         }
 
