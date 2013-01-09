@@ -60,6 +60,7 @@ ul li { margin-right: 10px; margin-bottom: 5px; }
 .session .buy input { margin-left: 0.5em; }
 .session .tsize { float: left; font-size: 0.9em; margin-left: 2em; line-height: 2.4; }
 .session .tsize select { min-width: 70px; padding: 9px 3px 5px 8px; height: 31px; margin-left: 0.5em}
+.session + .session { border-top: 1px solid #ddd; padding-top: 1em; }
 .rsub { display: block; text-align: center; }
 
 .workshop li { float: left; margin: 0 5em 2em 0; display: table; height: 150px; }
