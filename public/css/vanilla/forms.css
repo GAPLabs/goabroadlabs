@@ -99,8 +99,8 @@ select { min-width: 145px; height: 27px; padding: 6px 3px 4px 8px; background-co
 .file .origin { position:absolute; top:0; right:0; opacity:0; -moz-opacity:0; filter:alpha(opacity:0); z-index:2; }
 
 /* Submit and Buttons */
-input[type=submit], button { background-color: #00A8E2; color: #fff; border: none; height: auto; padding: 4px 10px; }
-input[type=submit]:hover, button:hover { border-color: #bbb; box-shadow:1px 1px 2px #ddd; color: #333; }
+input[type=submit], button { background-color: #00A8E2; color: #fff; border: none; height: auto; padding: 0.5em 1em; }
+input[type=submit]:hover, button:hover { border-color: #bbb; box-shadow:1px 1px 2px #ddd; color: #fff; background-color: #08b5f1; }
 
 /* Success, info, notice and error/alert boxes
 -------------------------------------------------------------- */

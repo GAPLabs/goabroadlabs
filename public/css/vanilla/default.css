@@ -33,6 +33,9 @@ form.search { overflow: hidden; margin-bottom: 1em; }
 /* link */
 a { text-decoration: none; }
 a:hover { color: #00a2ff; }
+.add { float: left; padding: 0; line-height: 1.4;}
+.add img { float: left; margin-right: 0.5em; opacity: 0.5; }
+.add:hover img { opacity: 1; }
 
 /* list */
 ul { list-style: none; padding: 0; margin: 0 0 20px;}
@@ -51,7 +54,13 @@ ul li { margin-right: 10px; margin-bottom: 5px; }
 .session input[type='radio']:disabled + span > span { border: none; }
 .session input[type='radio']:checked + span { color: #00A8E2; }
 .session input[type='radio']:checked + span > span { color: #00A8E2; border-color: #00A8E2; }
+.session input[type='text'] { float: left; }
 .session label > span { display: inline-block;  color: #8d8d8d; font-size: 1.2em; font-weight: 400; margin: 0; }
+.session .buy { float: left; font-size: 0.9em; margin-left: 1em; line-height: 2.4;  }
+.session .buy input { margin-left: 0.5em; }
+.session .tsize { float: left; font-size: 0.9em; margin-left: 2em; line-height: 2.4; }
+.session .tsize select { min-width: 70px; padding: 9px 3px 5px 8px; height: 31px; margin-left: 0.5em}
+.rsub { display: block; text-align: center; }
 
 .workshop li { float: left; margin: 0 5em 2em 0; display: table; height: 150px; }
 .workshop li:nth-child(3n+3) { clear: both; }

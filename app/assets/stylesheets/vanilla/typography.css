@@ -58,7 +58,7 @@ a           { color: #00A8E2; text-decoration: none;}
 
 blockquote  { margin: 1.5em; color: #666; font-style: italic; }
 strong,dfn  { font-weight: bold; }
-em,dfn      { font-style: italic; font-family: Georgia, serif; }
+em,dfn      { font-style: italic; border-bottom: 1px dotted; }
 sup, sub    { line-height: 0; }
 
 abbr,

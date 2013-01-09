@@ -3,7 +3,7 @@ img { float: left; }
 img.fr { margin-left: 10px; }
 
 /* header */
-.header { z-index: 9999; position:fixed; width: 100%; top:0; background: transparent url('../images/divider_arrow_1.png') no-repeat bottom center; padding-bottom: 2.5em; }
+.header { z-index: 9999; position:fixed; width: 100%; top:0; background: transparent url('../../images/divider_arrow_1.png') no-repeat bottom center; padding-bottom: 2.5em; }
 .header section { background-color: #22272b; background-image: none; margin: 0; padding: 0;  width: 100%; }
 .header .box { padding: 1em 5em; }
 .header li { float: left; text-transform: uppercase; font-size: 1.1em; margin: 0.5em 0 0.5em 1.5em; }
@@ -20,7 +20,7 @@ h2 span.unitxt { color: #aaa; display: block; font-size: 0.7em; }
 h2 span.unitxt > span { color: #c8386d; }
 
 /* ads */
-.hd > section > div { background:#000 url('../images/hdposter.jpg') no-repeat bottom center; padding: 4em 0 2em; text-align: center; color: #ddd; font-size: 1.8em; }
+.hd > section > div { background:#000 url('../../images/hdposter.jpg') no-repeat bottom center; padding: 4em 0 2em; text-align: center; color: #ddd; font-size: 1.8em; }
 .hd img { float: none; display: block; margin:0 auto 1em; }
 .hd h1 { color: #fff; font-size: 2.5em; text-shadow: 0 1px 5px #000; }
 .hd h1+p { padding: 0.5em 1em; background-color: #74324a; display:inline-block; font-family: 'Questrial', sans-serif; }
@@ -33,6 +33,9 @@ form.search { overflow: hidden; margin-bottom: 1em; }
 /* link */
 a { text-decoration: none; }
 a:hover { color: #00a2ff; }
+.add { float: left; padding: 0; line-height: 1.4;}
+.add img { float: left; margin-right: 0.5em; opacity: 0.5; }
+.add:hover img { opacity: 1; }
 
 /* list */
 ul { list-style: none; padding: 0; margin: 0 0 20px;}
@@ -51,9 +54,13 @@ ul li { margin-right: 10px; margin-bottom: 5px; }
 .session input[type='radio']:disabled + span > span { border: none; }
 .session input[type='radio']:checked + span { color: #00A8E2; }
 .session input[type='radio']:checked + span > span { color: #00A8E2; border-color: #00A8E2; }
+.session input[type='text'] { float: left; }
 .session label > span { display: inline-block;  color: #8d8d8d; font-size: 1.2em; font-weight: 400; margin: 0; }
-.session label { padding: 1em 0; margin: 0; border-top: 1px solid #ddd; }
-.session label:last-child { border-bottom: 1px solid #ddd; }
+.session .buy { float: left; font-size: 0.9em; margin-left: 1em; line-height: 2.4;  }
+.session .buy input { margin-left: 0.5em; }
+.session .tsize { float: left; font-size: 0.9em; margin-left: 2em; line-height: 2.4; }
+.session .tsize select { min-width: 70px; padding: 9px 3px 5px 8px; height: 31px; margin-left: 0.5em}
+.rsub { display: block; text-align: center; }
 
 .workshop li { float: left; margin: 0 5em 2em 0; display: table; height: 150px; }
 .workshop li:nth-child(3n+3) { clear: both; }
@@ -65,14 +72,14 @@ ul li { margin-right: 10px; margin-bottom: 5px; }
 .fl { float: left; }
 .fr { float: right; }
 .bl { display: block; }
-section { padding-bottom: 2.5em; background: url('../images/divider_arrow_2.png') no-repeat bottom center, url('../images/divider_dot.png') repeat-x bottom center #fff; } 
-.hd section { background: #fff url('../images/divider_arrow_1.png') no-repeat bottom center; }
+section { padding-bottom: 2.5em; background: url('../../images/divider_arrow_2.png') no-repeat bottom center, url('../../images/divider_dot.png') repeat-x bottom center #fff; } 
+.hd section { background: #fff url('../../images/divider_arrow_1.png') no-repeat bottom center; }
 .box { margin: auto; padding: 3em 5em; overflow: hidden; }
 .box.grid_6 { text-align: center; }
 .grid_6:first-child > .box, .grid_8:first-child > .box  { padding: 3em 1em 3em 5em; }
 .grid_6:last-child > .box, .grid_4:last-child > .box  { padding: 3em 5em 3em 1em; }
 article:last-child section, footer section { background-image: none; padding: 0; }
-article.nodivider section { background:url('../images/divider_dot.png') repeat-x bottom center #fff; padding-bottom: 2.5em; }
+article.nodivider section { background:url('../../images/divider_dot.png') repeat-x bottom center #fff; padding-bottom: 2.5em; }
 
 .reserved h2 { margin-bottom: 0.5em; text-align: center; }
 .reserved p span { font-size: 3em; line-height: 37px; font-weight: 400; text-align: center; font-family: 'Questrial', sans-serif; margin-bottom: 0.5em; }
