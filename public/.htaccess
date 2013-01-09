@@ -1,0 +1,4 @@
+RewriteEngine On
+RewriteBase /
+RewriteCond %{HTTP_HOST} !goabroadlabs.ph$ [NC]
+RewriteRule ^(.*)$ http://www.goabroadlabs.ph/$1 [L,R=301]
