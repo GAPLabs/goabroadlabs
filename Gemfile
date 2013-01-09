@@ -24,6 +24,7 @@ group :production do
   gem 'pg'
   gem 'thin'
   gem 'taps'
+  gem 'rack-rewrite'
 end
 
 gem 'jquery-rails'
