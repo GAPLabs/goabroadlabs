@@ -3,7 +3,7 @@ namespace "load:default" do
     task :codes => :environment do
         codes = Array.new
 
-        codes << Codes.new(:code => 'UPVTC2013001', :owner => 'University of the Philippines Tacloban College', :description => 'Code for UPVTC year 2013' )
+        codes << Codes.new(:code => 'UPVTC2013001', :owner => 'University of the Philippines Visayas Tacloban College', :description => 'Code for UPVTC year 2013' )
         codes << Codes.new(:code => 'LNU2013002', :owner => 'Leyte Normal University', :description => 'Code for LNU year 2013' )
         codes << Codes.new(:code => 'EVSU2013003', :owner => 'Eastern Visayas State University - Main Campus', :description => 'Code for EVSU year 2013' )
         codes << Codes.new(:code => 'ACLC2013004', :owner => 'AMA Computer Learning Center', :description => 'Code for ACLC year 2013' )
