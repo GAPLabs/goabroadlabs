@@ -16,6 +16,8 @@ GoAroadLabs::Application.routes.draw do
     match '/event/select-workshop' => 'event#workshops', :as => :webcamp_select_workshop
 
     match '/event/finish-registration' => 'event#finish', :as => :finish_registration
+    
+    match '/event/render_add_participant_partial' => 'event#render_add_participant_partial'
 
     # Sample of named route:
     #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase

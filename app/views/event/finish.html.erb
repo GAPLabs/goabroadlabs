@@ -2,17 +2,43 @@
 
 <% content_for :registration do %>
     <section class="column grid_12">
-        <div class="row">
-            <div class="column grid_12">
-                <div class="box grid_6">
-                    <h2>Hi, <span class="mntxt"><%= @attendee.name %></span><span class="unitxt">from <span><%= @code.owner %></span></span></h2>
-                    <h3>You have selected <%= @workshops %> workshops for the GoAbroad Labs Webcamp 2013.</h3>
-                    <form method="post">
-                        <input type="submit" value="Finish">
-                    </form>
-                </div>
-            </div>
-        </div>
+		<div class="box grid_7">
+			<h2>Hi, <span class="mntxt"><%= @schoolCode.owner %></span></h2>
+			<p>Please fill up the form for your representatives. Each school can send up to 6 participants, ex. two(2) Coaches and four(4) students.</p>
+			
+			<label><span>By checking "Buy WebCamp T-shirt" we will be able to reserve you a limited edition WebCamp T-shirt, payment will be asked during the registration day.</span></label>
+			
+			<% if @hasErrors %>
+				<span>The following errors occurred:</span>
+				<ul>
+				<% @errorMessage.each do | error | %>
+					<li>
+						<span class="error"><%= error %></span>
+					</li>	
+				<% end %>
+				</ul>
+			<% end %>	
+			<form action="/event/finish-registration" method="post">
+				<div class="session clearfix">
+					<div id="participants_container">
+						<%= render :partial => "event/addParticipant", :locals => { :counter => 0, :participant => nil } if @participants.size == 0 %>
+						<% i = 0 %>
+						<% @participants.each do | participant | %>
+							<%= render :partial => "event/addParticipant", :locals => { :counter => i, :participant => participant[1] } %>
+							<% i = i+1 %>
+						<% end %>
+					</div>	
+					<label><a href="javascript:void(0)" id="add_participant" class="add"><img src="images/add.png" border="" align="left">Add Participants</a></label>
+				</div>
+				<div class="session">
+					<p>Enter your school <em>Email address</em> for further updates and additional informations.</p>
+					<label class="clearfix"><input type="text" name="registration[school_contact]" value="<%= @email unless @email == '' %>" placeholder="Please enter your school email" size="40"></label>
+				</div>
+				<span class="rsub">
+					<input type="submit" value="Finish" class="clear">						
+				</span>
+			</form>
+		</div>
     </section>
 <% end %>
 
