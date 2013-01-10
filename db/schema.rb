@@ -19,20 +19,18 @@ ActiveRecord::Schema.define(:version => 0) do
     t.text   "description",               :null => false
   end
 
-  create_table "webcamp_registrations", :force => true do |t|
-    t.string   "first_name",      :limit => 100,                   :null => false
-    t.string   "last_name",       :limit => 100,                   :null => false
-    t.string   "email_address",   :limit => 100,                   :null => false
-    t.integer  "code_id",         :limit => 2,                     :null => false
-    t.integer  "first_session",   :limit => 2,   :default => 0,    :null => false
-    t.integer  "second_session",  :limit => 2,   :default => 0,    :null => false
-    t.integer  "third_session",   :limit => 2,   :default => 0,    :null => false
-    t.integer  "fourth_session",  :limit => 2,   :default => 0,    :null => false
-    t.boolean  "status",                         :default => true, :null => false
-    t.datetime "date_registered",                                  :null => false
+  create_table "participants", :force => true do |t|
+    t.string   "name",            :limit => 200, :null => false
+    t.boolean  "buying_shirt",                   :null => false
+    t.boolean  "shirt_size",                     :null => false
+    t.string   "code_id",         :limit => 20,  :null => false
+    t.datetime "date_registered",                :null => false
   end
 
-  add_index "webcamp_registrations", ["code_id"], :name => "code_id"
+  create_table "school_contacts", :force => true do |t|
+    t.string "code_id", :limit => 20,  :null => false
+    t.string "email",   :limit => 100, :null => false
+  end
 
   create_table "workshops", :force => true do |t|
     t.string  "title",        :limit => 250, :null => false
