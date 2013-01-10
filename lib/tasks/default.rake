@@ -8,7 +8,7 @@ namespace "load:default" do
         codes << Codes.new(:code => 'EVSU2013003', :owner => 'Eastern Visayas State University - Main Campus', :description => 'Code for EVSU year 2013' )
         codes << Codes.new(:code => 'ACLC2013004', :owner => 'AMA Computer Learning Center', :description => 'Code for ACLC year 2013' )
         codes << Codes.new(:code => 'AMA2013005', :owner => 'AMA Computer University', :description => 'Code for AMA year 2013' )
-        codes << Codes.new(:code => 'STI2013006', :owner => 'Systems Technology Institute', :description => 'Code for STI year 2013' )
+        codes << Codes.new(:code => 'STI2013006', :owner => 'Systems Technology Institute - Tacloban', :description => 'Code for STI year 2013' )
         codes << Codes.new(:code => 'SPC2013007', :owner => 'Saint Peter\'s College', :description => 'Code for SPC year 2013' )
         codes << Codes.new(:code => 'SJC2013008', :owner => 'Saint Joseph\'s College' , :description => 'Code for SJC year 2013' )
         codes << Codes.new(:code => 'VSU2013009', :owner => 'Visayas State University', :description => 'Code for VSU year 2013' )
