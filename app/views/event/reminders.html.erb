@@ -1,0 +1,29 @@
+<%= provide(:title,'GoAbroadLabs WebCamp 2013 - Register')%>
+
+<% content_for :registration do %>
+    <section class="column grid_12">
+		<div class="box grid_6">
+			<h2>Hi, <span class="mntxt"><%= @schoolCode.owner %></span></span></h2>
+			<h3>What to bring:</h3>
+			
+			<ul>
+				<li>
+					1. Each participant may bring their own laptops to enjoy the workshops more. WIFI is available throughout the complex.
+				</li>	
+					2. Registration fee (Php 400) will be collected upon registration at the venue on February 23, 2012. Souvenir T-shirts are also available for sale.
+				<li>
+					3. Keep an open mind.
+				</li>
+				<li>
+					4. Enjoy the WEBCAMP 2013 experience!
+				</li>
+			</ul>
+
+			<p>See you there!</p>
+		</div>
+    </section>
+<% end %>
+
+<% provide :script do %>
+    <%= javascript_include_tag "registration" %>
+<% end %>
