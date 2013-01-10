@@ -10,7 +10,7 @@
         
         function scrollToArticle(offset){
             $('html, body').animate({
-                scrollTop: offset.top - 125
+                scrollTop: offset.top - 108
             }, 500);
         }
 
