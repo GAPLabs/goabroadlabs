@@ -9,14 +9,11 @@
 			<label><span>By checking "Buy WebCamp T-shirt" we will be able to reserve you a limited edition WebCamp T-shirt, payment will be asked during the registration day.</span></label>
 			
 			<% if @hasErrors %>
-				<span>The following errors occurred:</span>
-				<ul>
-				<% @errorMessage.each do | error | %>
-					<li>
-						<span class="error"><%= error %></span>
-					</li>	
-				<% end %>
-				</ul>
+				<span class="error clearfix">
+					<% @errorMessage.each do | error | %>
+						<%= error %>
+					<% end %>
+				</span>
 			<% end %>	
 			<form action="/event/finish-registration" method="post">
 				<div class="session clearfix">
