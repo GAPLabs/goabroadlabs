@@ -129,10 +129,13 @@ class EventController < ApplicationController
                 schoolContact.email = registrationInfo[:school_contact]
                 schoolContact.save
                 
-                redirect_to webcamp_main_path and return
+                redirect_to reminders_path and return
             end    
-        end    
-        
+        end     
+    end
+    
+    def reminders
+        @schoolCode = Codes.where("code = ?", session[:code_id]).first
     end
     
     def render_add_participant_partial

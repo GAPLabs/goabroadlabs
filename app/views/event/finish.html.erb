@@ -10,6 +10,7 @@
 			
 			<% if @hasErrors %>
 				<span class="error clearfix">
+					<span>The following errors occured:</span>
 					<% @errorMessage.each do | error | %>
 						<%= error %>
 					<% end %>

@@ -17,6 +17,8 @@ GoAroadLabs::Application.routes.draw do
 
     match '/event/finish-registration' => 'event#finish', :as => :finish_registration
     
+    match '/event/reminders' => 'event#reminders', :as => :reminders
+    
     match '/event/render_add_participant_partial' => 'event#render_add_participant_partial'
 
     # Sample of named route:
