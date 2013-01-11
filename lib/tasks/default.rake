@@ -35,7 +35,7 @@ namespace "load:default" do
     
 
     desc "Add Test Codes"
-    task :test_school_codes => environment do
+    task :test_school_codes => :environment do
         codes = Array.new
 
 
