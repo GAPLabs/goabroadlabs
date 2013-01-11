@@ -33,4 +33,16 @@ namespace "load:default" do
         Workshops.import workshops
     end
     
+
+    desc "Add Test Codes"
+    task :test_school_codes => environment do
+        codes = Array.new
+
+
+        codes << Codes.new(:code => 'TESTCODE001', :owner => 'Test Code', :description => 'Test Code for year 2013' )
+        codes << Codes.new(:code => 'TESTCODE002', :owner => 'Test Code', :description => 'Test Code for year 2013' )
+        codes << Codes.new(:code => 'TESTCODE003', :owner => 'Test Code', :description => 'Test Code for year 2013' )
+
+        Codes.import codes
+    end
 end
