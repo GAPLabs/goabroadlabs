@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(:version => 0) do
 
   create_table "codes", :force => true do |t|
     t.string "code",        :limit => 20, :null => false
-    t.string "owner",       :limit => 50, :null => false
+    t.string "owner",       :limit => 150, :null => false
     t.text   "description",               :null => false
   end
 
