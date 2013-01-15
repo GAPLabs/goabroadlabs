@@ -40,6 +40,9 @@ a:hover { color: #00a2ff; }
 /* list */
 ul { list-style: none; padding: 0; margin: 0 0 20px;}
 ul li { margin-right: 10px; margin-bottom: 5px; }
+.mech li { margin-bottom: 1.5em; }
+.mech li ul { margin-left: 1.5em; list-style-type: square;}
+.mech li ul li { margin-bottom: 0.5em }
 
 .sched * { display: block; }
 .sched .time { border-bottom: 1px solid #909090; font-weight: 400; padding-bottom: 5px; }
