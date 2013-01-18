@@ -23,8 +23,8 @@ production:
   adapter: pg
   encoding: unicode
   pool: 5
-  database: d1gv0rluk8l140
-  user: qqronpohszxfmc
-  password: Xlf3hqMraqPtv4mBj_TT_Xcesg
-  host: ec2-54-243-188-54.compute-1.amazonaws.com
+  database: 
+  user: 
+  password: 
+  host: 
   port: 5482
