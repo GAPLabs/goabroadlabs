@@ -20,11 +20,7 @@ class EventController < ApplicationController
                     contact = SchoolContact.where("code_id = ?", code.code).first
                     if contact != nil
                         @codeError = "Your school already has registered participants."
-                    else 
-                        schoolContact = SchoolContact.new
-                        schoolContact.code_id = params[:code]
-                        schoolContact.email = ''
-                        schoolContact.save
+                    else
                         session[:code_id] = params[:code]
                         redirect_to finish_registration_path and return    
                     end
@@ -79,6 +75,9 @@ class EventController < ApplicationController
 
     def finish
         code = session[:code_id]
+
+        redirect_to webcamp_main_path  and return  if code == nil
+
         @schoolCode = Codes.where("code = ?", code).first
         
         @hasErrors = false        
@@ -125,7 +124,8 @@ class EventController < ApplicationController
                     newParticipant.save
                 end
                 
-                schoolContact = SchoolContact.where("code_id = ?", code).first
+                schoolContact = SchoolContact.new
+                schoolContact.code_id = code
                 schoolContact.email = registrationInfo[:school_contact]
                 schoolContact.save
                 
@@ -136,6 +136,8 @@ class EventController < ApplicationController
     
     def reminders
         @schoolCode = Codes.where("code = ?", session[:code_id]).first
+
+        redirect_to webcamp_main_path and return if request.post?
     end
     
     def render_add_participant_partial
