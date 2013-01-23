@@ -2,7 +2,7 @@
    <input name="registration[participants][<%= counter %>][name]" type="text" value="<%= participant["name"] unless participant == nil %>" placeholder="Enter your participants Name" size="40"> 
    <span class="buy">
 		Buy 
-		<a href="#"><em>WebCamp T-shirt</em></a>? 
+		<a href="#" data-reveal-id="shirt-modal"><em>WebCamp T-shirt</em></a>? 
 		<input name="registration[participants][<%= counter %>][buying_shirt]" class="buy-checkbox" type="checkbox" <% if participant == nil || (participant != nil && participant["buying_shirt"] == 'on') %>checked="checked"<% end %> />
 	</span>
    <span class="tsize">Size 
