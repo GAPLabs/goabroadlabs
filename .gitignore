@@ -1,5 +1,6 @@
-log/
 tmp/
-.DS_STORE
+config/database.yml
 .sass-cache
 *.log
+.DS_STORE
+log/
