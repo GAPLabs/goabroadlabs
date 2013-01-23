@@ -14,4 +14,5 @@
 //= require jquery_ujs
 //= require infobubble.js
 //= require jquery.reveal.js
+//= require modernizr-2.6.1-respond-1.1.0.min.js
 //= depend_on customcalls/registration
