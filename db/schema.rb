@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(:version => 0) do
   create_table "participants", :force => true do |t|
     t.string   "name",            :limit => 200, :null => false
     t.boolean  "buying_shirt",                   :null => false
-    t.string  "shirt_size",       :limit => 20   :null => ""
+    t.string  "shirt_size",       :limit => 10,   :null => ""
     t.string   "code_id",         :limit => 20,  :null => false
     t.datetime "date_registered",                :null => false
   end
